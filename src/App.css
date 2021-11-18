@@ -1,38 +1,254 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+:root{
+  --main-background : hsl(222, 26%, 31%);
+  --toggle-keypad-background: hsl(223, 31%, 20%);
+  --screen-background: hsl(224, 36%, 15%);
+  --reset-key-background: hsl(225, 21%, 49%);
+  --reset-key-shadow: hsl(224, 28%, 35%);
+  --equal-key-background-toggle: hsl(6, 63%, 50%);
+  --equal-key-shadow: hsl(6, 70%, 34%);
+  --key-background: hsl(30, 25%, 89%);
+  --key-shadow: hsl(28, 16%, 65%);
+  --key-color: hsl(221, 14%, 31%);
+  --key-white: hsl(0, 0%, 100%);
+}
+.theme-1{
+  --main-background : hsl(222, 26%, 31%);
+  --toggle-keypad-background: hsl(223, 31%, 20%);
+  --screen-background: hsl(224, 36%, 15%);
+  --reset-key-background: hsl(225, 21%, 49%);
+  --reset-key-shadow: hsl(224, 28%, 35%);
+  --equal-key-background-toggle: hsl(6, 63%, 50%);
+  --equal-key-shadow: hsl(6, 70%, 34%);
+  --key-background: hsl(30, 25%, 89%);
+  --key-shadow: hsl(28, 16%, 65%);
+  --key-color: hsl(221, 14%, 31%);
+  --key-white: hsl(0, 0%, 100%);
+}
+.theme-2{
+  --main-background : hsl(0, 0%, 90%);
+  --toggle-keypad-background: hsl(0, 5%, 81%);
+  --screen-background: hsl(0, 0%, 93%);
+  --reset-key-background: hsl(185, 42%, 37%);
+  --reset-key-shadow: hsl(185, 58%, 25%);
+  --equal-key-background-toggle: hsl(25, 98%, 40%);
+  --equal-key-shadow: hsl(25, 99%, 27%);
+  --key-background: hsl(45, 7%, 89%);
+  --key-shadow: hsl(35, 11%, 61%);
+  --key-color: hsl(60, 10%, 19%);
+  --key-white: hsl(0, 0, 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+body[class="theme-3"]{
+  --main-background : hsl(268, 75%, 9%);
+  
+  --toggle-keypad-background: hsl(268, 71%, 12%);
+  --screen-background:hsl(268, 71%, 12%);
+  --reset-key-shadow: hsl(281, 89%, 26%);
+  --reset-key-background: hsl(285, 91%, 52%);
+  /* --reset-key-shadow: hsl(176, 100%, 44%); */
+  --equal-key-background-toggle: hsl(176, 100%, 44%);
+  --equal-key-shadow: hsl(177, 92%, 70%);
+  /* --equal-key-shadow: hsl(268, 47%, 21%); */
+  --key-background: hsl(290, 70%, 36%);
+  --key-shadow: hsl(52, 100%, 62%);
+  --key-color: hsl(52, 100%, 62%);
+  /* --key-color: hsl(198, 20%, 13%); */
+  --key-white: hsl(0, 0, 100%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body[class="theme-3"] .title, body[class="theme-3"] .text-theme, .screen-container{
+  color: var(--key-color) !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body[class="theme-1"] .screen-container{
+  color: var(--key-white) !important;
+}
+
+*{
+  font-size: 32px;
+  font-family: 'Spartan', sans-serif;
+}
+.container{
+  background-color: var(--main-background);
   display: flex;
+  height: 100vh;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  position: relative;
+}
+.header{
+  position: absolute;
+  display: flex;
+  top: 3%;
+  height: 7%;
+  width: 88%;
+  color: var(--key-white);
+}
+.title{
+  align-self: center;
+}
+.theme-container{
+  display: flex;
+  justify-content: space-between;
+  width: 45%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+}
+.text-theme{
+  font-size: 0.5rem;
+  align-self:flex-end;
+  justify-self: center;
+  
+}
+#theme{
+  padding-bottom: 5px;
+}
+.theme-selector{
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: 1fr 1fr;
+  font-size: 5px;
+  place-items: center;
+}
+.switch-theme{
+  grid-column: span 3;
+}
+.screen-container{
+  background-color: var(--screen-background);
+  color: var(--key-white);
+  text-align: right;
+  height: 13%;
+  width: 88%;
+  border-radius: 10px;
+  position: absolute;
+  top: 15%;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  align-items: center;
+  font-size: 42px;
+  
 }
 
-.App-link {
-  color: #61dafb;
+.keys-container{
+  background-color:  var(--toggle-keypad-background);
+  height: 65%;
+  width: 88%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  bottom: 5%;
+  border-radius: 10px;
+}
+.keys{
+  height: 90%;
+  width: 85%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(5,1fr);
+  align-items: center;
+  justify-items: center;
+  row-gap: 4%;
+  column-gap: 4%;
+}
+.keys button:not(.reset,.equal,.del){
+  width: 91.3%;
+  height: 94.4%;
+  border-radius: 5px;
+  background-color: var(--key-background);
+  border: none;
+  box-shadow: 0 6px var(--key-shadow);
+  color: var(--key-color)
+}
+.button:active{
+  box-shadow: none;
+  transform: translateY(6px);
+}
+.del{
+  width: 91.3%;
+  height: 94.4%;
+  border-radius: 5px;
+  background-color: var(--reset-key-background);
+  border: none;
+  box-shadow: 0 6px var(--reset-key-shadow);
+  color: var(--key-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reset, .equal{
+  width: 91.3%;
+  height: 94.4%;
+  border-radius: 5px;
+  grid-column: span 2;
+  width: 96% !important;
+  row-gap: 4% !important;
+  border: none;
+}
+.reset{
+  box-shadow: 0 6px var(--reset-key-shadow);
+  background-color: var(--reset-key-background);
+  color: var(--key-white);
+}
+.equal{
+  background-color: var(--equal-key-background-toggle);
+  box-shadow: 0 6px var(--equal-key-shadow);
+  color: var(--key-white);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.switch-theme{
+  position: relative;
+  width: 90%;
+  height: 80%;
+  border-radius: 15px;
+  background-color: var(--toggle-keypad-background);
+  display: flex;
+  justify-content: center;
+}
+#switch1, #switch2, #switch3 {
+    position: absolute;
+    left: -9999px;
+}
+
+#myRange{
+  -webkit-appearance: none;
+  width: 90%;
+  background-color: transparent;
+}
+#myRange::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  height: 25px;
+  width: 25px;
+  border-radius: 50px;
+  background: var(--equal-key-background-toggle);
+}
+#myRange:hover{
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px){
+  .header{
+    width: 37vw;
+    top:9%;
   }
-  to {
-    transform: rotate(360deg);
+  .screen-container{
+    width: 37vw;
+    top: 18%;
+  }
+  .keys-container{
+    width: 37vw;
+    height: 55vh;
+    bottom: 10%;
+  }
+  .theme-container{
+    width: 25%;
+  }
+  .theme-selector{
+    width: 50%;
   }
 }
